@@ -19,7 +19,7 @@ services:
     container_name: "meow-php"
     build: ./build-meow-php
     volumes:
-      - ../backend:/app
+      - ../meowTra:/app
       - ./php/log:/app-log
       - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
       - ./php/php.ini:/usr/local/etc/php-fpm.d/php.ini
@@ -34,9 +34,9 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/log:/var/log/nginx
-      - ../backend/public/assets:/assets
+      - ../meowTra/public/assets:/assets
     ports:
-      - "80:80"
+      - "5678:5678"
     networks:
       - meow-network
     depends_on:
